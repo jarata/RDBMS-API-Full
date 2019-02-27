@@ -2,8 +2,8 @@ const express = require('express');
 const helmet = require('helmet');
 const morgan = require('morgan');
 
-const cohortRouter = require('./routes/cohorts/cohortRouter');
-const studentRouter = require('./routes/students/studentRouter');
+const cohortRouter = require('./routes/cohortRouter');
+const studentRouter = require('./routes/studentRouter');
 
 const server = express();
 
