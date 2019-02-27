@@ -6,12 +6,26 @@ const db = knex(knexConfig.development);
 
 // GET
 router.get('/', async (req, res) => {
-    res.send('Cohorts GET')
+    // res.send('Cohorts GET')
+    try {
+        const cohort = await db('cohorts');
+        res.status(200).json(cohort)
+    } catch (e) {
+        console.log(e);
+        res.status(500).json({
+            error: "The cohorts information could not be retrieved."
+        })
+    }
 });
 
 // GET :id
-router.get('/', async (req, res) => {
+router.get('/:id', async (req, res) => {
     res.send('Cohorts GET/:id')
+});
+
+// GET :id/students
+router.get('/:id/students', async (req, res) => {
+    res.send('Cohorts GET:id/students')
 });
 
 // POST
